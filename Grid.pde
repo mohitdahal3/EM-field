@@ -36,7 +36,7 @@ class Grid{
             emf1.mult(m);
             emf.add(emf1);
           }
-          drawArrow(emf , c);
+          drawArrow(emf.mult(-1) , c);
           
         }
       }

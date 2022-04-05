@@ -1,4 +1,4 @@
-int w = 40;
+int w = 41;
 Grid grid;
 
 void setup(){
@@ -48,12 +48,13 @@ void drawArrow(PVector vec , Cell c){
   Cell cell = c.copyCell();
   stroke(0);
   fill(0);
+  
   strokeWeight(2);
   int x = cell.x * w;
   int y = cell.y * w;
   int sp = int(w / 3);
   float m = vec.mag();
-  m = constrain(map(m,0,50,0,1) , 0 , 1);
+  m = constrain(map(m,0,55,0,1) , 0 , 1);
   sp *= m;
   
   
@@ -63,4 +64,17 @@ void drawArrow(PVector vec , Cell c){
   line(-sp , 0 , sp , 0);
   triangle(sp , 0 , sp/2 , -sp/2 , sp/2 , sp/2);
   popMatrix();
+}
+
+void drawPlusMinus(float x , float y , boolean plus){
+  stroke(255);
+  strokeWeight(1);
+  int s = int(w/8);
+  x = int(x);
+  y = int(y);
+  line(x-s , y , x+s , y);
+  if(plus){
+    line(x , y-s , x , y+s);
+  }
+  
 }
